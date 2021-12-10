@@ -13,7 +13,7 @@ This service is ment to run behind a Nginx proxy: ```proxy_pass http://127.0.0.1
 
 * clone this repository ```git clone https://github.com/seigedigital/strollgistid```
 
-* run ```npm istall```
+* run ```npm install```
 
 * configure the few options in ```config.json``` (and ```index.js```?)
 
@@ -23,3 +23,25 @@ This service is ment to run behind a Nginx proxy: ```proxy_pass http://127.0.0.1
 
 Request this service with Header ```X-SV-CACHE-UPDATE=TRUE``` in order to initiate a cache update.
 Otherwise get cached results, much faster and revalidated every 60 seconds.
+
+## Docker
+
+### Buiding the service image
+
+After cloning run the following in the root directory of this repository
+
+```
+docker build .
+```
+
+### Using the `docker-compose.yaml` file
+
+You can use `docker-compose` to also start NGinx, this will also build the service image if required.
+
+```
+docker-compose up -d
+```
+
+### Configuring the service for `docker-compose`
+
+You can update `docker-env` to pass your setting to the service containers
