@@ -1,5 +1,5 @@
 const express = require('express')
-const fetch = import('node-fetch')
+const fetch = require('node-fetch')
 const sqlite3 = require('sqlite3').verbose()
 const btoa = require('btoa')
 const log4js = require('log4js')
