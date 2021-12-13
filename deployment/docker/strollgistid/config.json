@@ -1,0 +1,6 @@
+{
+  "port": 2000,
+  "interface": "0.0.0.0",
+  "github_user": "${GITHUB_USER}",
+  "github_pat": "${GITHUB_PAT}"
+}
