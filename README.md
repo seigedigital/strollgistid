@@ -63,4 +63,4 @@ docker-compose up -d
 
 ### Configuring the service for `docker-compose`
 
-You can update `docker-env` to pass your setting to the service containers
+You can update `docker-env` to pass your setting to the service containers.
