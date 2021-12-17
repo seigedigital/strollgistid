@@ -19,13 +19,13 @@ This service is ment to run behind an Nginx proxy: ```proxy_pass http://127.0.0.
 
 * run ```npm start``` or ```node index.js```
 
-# URIs
+## URIs
 
 URI schema: {Your BaseURL}/{github Userame}/{gist ID}
 
 Use this schema as id in your JSON-LD gists.
 
-# Cache
+## Cache
 
 Request this service with header ```X-SV-CACHE-UPDATE: TRUE``` in order to initiate a cache update. It is necessary to do this once from your writing application once after you updated the gist. A gist is automatically pulled only if there is no cached version of it available yet.
 
