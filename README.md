@@ -31,12 +31,18 @@ Otherwise get cached results, much faster and revalidated every 60 seconds.
 After cloning run the following in the root directory of this repository
 
 ```
-docker build .
+DOCKER_BUILDKIT=1 docker-compose build
 ```
 
 ### Using the `docker-compose.yaml` file
 
 You can use `docker-compose` to also start NGinx, this will also build the service image if required.
+
+```
+docker-compose up
+```
+
+or if you want to run as a demon
 
 ```
 docker-compose up -d
