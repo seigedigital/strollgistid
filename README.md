@@ -7,7 +7,7 @@ The reasons to create this service were
 * host JSON LD files as gists having their own URI in the JSON body (impossible when the raw_url depends on the latest commit)
 * cache requests in order to slow down load on the github API
 
-This service is ment to run behind a Nginx proxy: ```proxy_pass http://127.0.0.1:2000;```
+This service is ment to run behind an Nginx proxy: ```proxy_pass http://127.0.0.1:2000;```
 
 ## How To Use
 
@@ -19,10 +19,15 @@ This service is ment to run behind a Nginx proxy: ```proxy_pass http://127.0.0.1
 
 * run ```npm start``` or ```node index.js```
 
-{Your BaseURL}/{github Userame}/{gist ID}
+URI schema: {Your BaseURL}/{github Userame}/{gist ID}
 
-Request this service with Header ```X-SV-CACHE-UPDATE=TRUE``` in order to initiate a cache update.
-Otherwise get cached results, much faster and revalidated every 60 seconds.
+Request this service with header ```X-SV-CACHE-UPDATE: TRUE``` in order to initiate a cache update.
+
+```
+curl -H 'X-SV-CACHE-UPDATE: TRUE' {Your BaseURL}/{github Userame}/{gist ID}
+```
+
+Otherwise get cached results which are much faster. Revalidation is ensured by saving a stroll from the editor (which always makes use of the header mentioned above.)
 
 ## Docker
 
