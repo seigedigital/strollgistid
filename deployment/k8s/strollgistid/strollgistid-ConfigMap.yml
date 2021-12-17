@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: strollgistid-config-json
+data:
+  config.json: |
+    {
+      "port": 2000,
+      "interface": "127.0.0.1",
+      "github_user": "${GITHUB_USER}",
+      "github_pat": "${GITHUB_PAT}"
+    }

@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  nginx:
+    image: nginx:stable-alpine
+    links:
+      - strollgistid
+    depends_on:
+      - strollgistid
+    volumes:
+      - ./deployment/docker/nginx/site.conf:/etc/nginx/templates/default.conf.template:ro
+    restart: always
+    env_file:
+      - docker-env
+    ports:
+      - '8080:80'
+# Update this to enable health checking
+#    healthcheck:
+#      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:80"]
+#      interval: 30s
+#      timeout: 60s
+#      retries: 300
+
+  strollgistid:
+    build:
+      dockerfile: ./deployment/docker/strollgistid/Dockerfile
+      context: .
+    restart: always
