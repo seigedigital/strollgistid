@@ -184,7 +184,10 @@ app.all('*', function (req, res, next) {
   const user = pathelements[1]
   const id = pathelements[2]
 
-  if (user.length < 3 || id.length < 3) {
+  let regex_user = new RegExp('^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$')
+  let regex_id = new RegExp('^[0-9a-z]+$')
+
+  if ( !regex_user.test(user) || !regex_id.test(id) ) {
     errorout(res,"insufficient IDs",404)
     return
   } else {
