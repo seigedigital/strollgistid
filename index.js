@@ -106,8 +106,10 @@ function gist_get_meta(res,id,user) {
         } catch (e) {
           if(rl_remaining<1) {
             errorout(res,"github api rate limit reached",503)
+            return
           } else {
             errorout(res,"error getting raw url",500)
+            return
           }
           return
         }
@@ -183,7 +185,8 @@ app.all('*', function (req, res, next) {
   const id = pathelements[2]
 
   if (user.length < 3 || id.length < 3) {
-    errorout("insufficient IDs",404)
+    errorout(res,"insufficient IDs",404)
+    return
   } else {
     if (req.method === 'OPTIONS') {
       logger.info('OPTIONS REQUEST ANSWERED')
