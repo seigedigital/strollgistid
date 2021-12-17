@@ -27,7 +27,9 @@ Request this service with header ```X-SV-CACHE-UPDATE: TRUE``` in order to initi
 curl -H 'X-SV-CACHE-UPDATE: TRUE' {Your BaseURL}/{github Userame}/{gist ID}
 ```
 
-Otherwise get cached results which are much faster. Revalidation is ensured by saving a stroll from the editor (which always makes use of the header mentioned above.)
+Otherwise get cached results which are much faster.
+
+For the application strollview-editor revalidation is ensured by saving a stroll from the editor (which always makes use of the header mentioned above.)
 
 ## Docker
 
