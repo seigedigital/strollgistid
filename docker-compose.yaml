@@ -21,6 +21,7 @@ services:
 #      retries: 300
 
   strollgistid:
+    image: ghcr.io/seigedigital/strollgistid:main
     build:
       dockerfile: ./deployment/docker/strollgistid/Dockerfile
       context: .
