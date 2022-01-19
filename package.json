@@ -12,7 +12,7 @@
   "dependencies": {
     "btoa": "^1.2.1",
     "express": "^4.17.2",
-    "log4js": "^6.3.0",
+    "log4js": "^6.4.0",
     "node-fetch": "^2.6.1",
     "sqlite3": "^5.0.2"
   },
