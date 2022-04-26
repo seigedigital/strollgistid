@@ -205,5 +205,13 @@ app.all('*', function (req, res, next) {
   }
 })
 
-app.listen(config.port,config.interface)
-logger.info('Listening on '+config.interface+":"+config.port)
+const server = app.listen(config.port,config.interface)
+logger.info('Listening on ' + config.interface + ":" + config.port)
+
+process.stdin.resume();
+process.on('SIGINT', function() {
+  console.log('Shutting StrollGistID down...\n');
+  server.close(function () {
+    process.exit(0);
+  });
+});

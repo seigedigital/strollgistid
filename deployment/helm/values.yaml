@@ -1,0 +1,8 @@
+GITHUB_USER: ""
+GITHUB_PAT: ""
+service:
+  port: 2000
+  interface: 127.0.0.1
+  frontendURL: localhost
+ssl:
+  issuer: letsencrypt

@@ -1,0 +1,6 @@
+Installation of {{ .Chart.Name }} to namespace '{{ .Release.Namespace }}' finished!
+
+To learn more visit the [Project GitHub page](https://github.com/seigedigital/strollgistid)
+
+
+This NOTES.txt was evaluated on K8s {{ .Capabilities.KubeVersion.Major }}.{{ .Capabilities.KubeVersion.Minor }}, Helm Version {{ .Capabilities.HelmVersion.Version }}

@@ -1,0 +1,18 @@
+name: strollgistid
+description: This service tries to deliver the latest raw content of a single file gist.
+version: 0.0.1
+kubeVersion: => 1.20.0
+apiVersion: v2
+keywords:
+  - StrollGistID
+  - StrollView
+  - IIIF
+sources:
+  - https://github.com/seigedigital/strollgistid.git
+home: https://github.com/seigedigital/strollgistid
+maintainers:
+  - name: Leander Seige
+    email: kontakt@seige.digital
+icon: https://upload.wikimedia.org/wikipedia/commons/e/e8/International_Image_Interoperability_Framework_logo.png
+annotations:
+  app: strollgistid

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: strollgistid
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.component: strollgistid
+spec:
+  ports:
+    - name: "2000"
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+  selector:
+    app.component: strollgistid
+status:
+  loadBalancer: {}

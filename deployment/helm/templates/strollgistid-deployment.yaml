@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strollgistid
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.component: strollgistid
+spec:
+  selector:
+    matchLabels:
+      app.component: strollgistid
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.component: strollgistid
+    spec:
+      containers:
+        - name: strollgistid
+          image: ghcr.io/seigedigital/strollgistid:main
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          volumeMounts:
+            - mountPath: /strollgistid/config.json
+              name: {{ .Release.Name }}-configmap
+              readOnly: true
+              subPath: config.json
+      restartPolicy: Always
+      volumes:
+        - configMap:
+            items:
+              - key: config.json
+                path: config.json
+            name: {{ .Release.Name }}-configmap
+          name: {{ .Release.Name }}-configmap
+status: {}
