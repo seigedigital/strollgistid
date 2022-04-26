@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: strollgistid-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+{{- if .Values.ssl.issuer }}
+    cert-manager.io/cluster-issuer: {{ .Values.ssl.issuer | quote }}
+    cert-manager.io/issuer: {{ .Values.ssl.issuer | quote }}
+{{- end }}
+    nginx.ingress.kubernetes.io/server-alias: "{{ .Values.service.alias | quote }}"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+  - host: {{ .Values.service.frontendURL }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: strollgistid
+            port:
+              number: 2000
+  tls:
+    - hosts:
+        - {{ .Values.service.frontendURL }}
+      secretName: {{ .Release.Name }}-tls

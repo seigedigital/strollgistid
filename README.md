@@ -64,3 +64,19 @@ docker-compose up -d
 ### Configuring the service for `docker-compose`
 
 You can update `docker-env` to pass your setting to the service containers.
+
+
+## Helm
+
+You can also use [Helm]() to install the service to Kubernetes:
+
+```
+ helm upgrade --install -n strollgistid --set "service.frontendURL=stollgistid.example.com" --set "GITHUB_USER=" --set "GITHUB_PAT=" strollgistid  deployment/helm/
+```
+
+Just set the following parameters:
+* service.frontendURL - The hostname which the service should listen to
+* GITHUB_USER - A GitHub username to be used for GitHub API requests
+* GITHUB_PAT -  A GitHub personal access token (PAT) to be used for GitHub API requests
+
+Additionally you can set ssl.issuer to reference your `Issues` or `ClusterIssuer` to be able to generate SSL certificates, it's defaulting to `letsencrypt`.

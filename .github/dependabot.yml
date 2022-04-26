@@ -14,3 +14,9 @@ updates:
     ignore:
       - dependency-name: "node-fetch"
         update-types: ["version-update:semver-major"]
+
+  # Maintain dependencies for Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
